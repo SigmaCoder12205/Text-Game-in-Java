@@ -1,13 +1,9 @@
 package com.text_adventure_game;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+public class App{
+  
+
+  public static void main( String[] args ) throws InterruptedException{
+
+  }
 }
