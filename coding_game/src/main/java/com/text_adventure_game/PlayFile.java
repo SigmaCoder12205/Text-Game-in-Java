@@ -7,20 +7,34 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 public class PlayFile {
-  public void playFile(String path){
+  static Clip clip;
+  static AudioInputStream audioStream;
+  static boolean isOpen = false;
+  public static void playFile(String path){
     try {
+        isOpen = true;
+
         File file = new File(path);
-        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-        Clip clip = AudioSystem.getClip();
+
+        audioStream = AudioSystem.getAudioInputStream(file);
+
+        clip = AudioSystem.getClip();
         clip.open(audioStream);
         clip.start();
 
         System.in.read();
+
         clip.close();
         audioStream.close();
 
     } catch (Exception e) {
       System.out.println("Error: " + e);
+    }
+  }
+  public static void stopSong(){
+    if(isOpen){
+      clip.stop();
+      isOpen = false;
     }
   }
 }
