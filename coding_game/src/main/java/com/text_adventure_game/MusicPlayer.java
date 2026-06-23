@@ -2,6 +2,7 @@ package com.text_adventure_game;
 
 import java.io.File;
 import java.util.ArrayList;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -27,7 +28,6 @@ public class MusicPlayer implements Runnable{
     AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
     Clip clip =  AudioSystem.getClip();
     clip.open(audioStream);
-    System.out.println("Playing "+ path);
     clip.start();
 
     while (clip.getFramePosition() < clip.getFrameLength()) {
