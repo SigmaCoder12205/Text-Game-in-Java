@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Dracula Theme",
+  "workbench.colorTheme": "Aura Dracula Spirit (Soft)",
   "workbench.activityBar.location": "hidden",
   "workbench.editor.showTabs": "single",
   "workbench.statusBar.visible": false,
@@ -102,7 +102,7 @@
   "editor.lineNumbers": "relative",
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
-  "editor.showFoldingControls": "mouseover",
+  "editor.showFoldingControls": "never",
   "editor.guides.indentation": false,
   "editor.renderWhitespace": "none",
   "editor.renderLineHighlight": "none",
@@ -113,7 +113,7 @@
   "editor.overviewRulerBorder": false,
   "editor.hideCursorInOverviewRuler": true,
   "editor.quickSuggestions": {
-    "other": true
+    "other": true,
   },
   "editor.suggestOnTriggerCharacters": false,
   "editor.tabCompletion": "on",
@@ -121,6 +121,5 @@
   "emmet.triggerExpansionOnTab": true,
   "files.autoSave": "afterDelay",
   "update.mode": "none",
-  "extensions.ignoreRecommendations": true,
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "extensions.ignoreRecommendations": true
 }
