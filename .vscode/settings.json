@@ -95,7 +95,7 @@
   "editor.matchBrackets": "never",
   "editor.parameterHints.enabled": false,
   "editor.lightbulb.enabled": "off",
-  "editor.hover.enabled": "off",
+  "editor.hover.enabled": "on",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "scm.diffDecorations": "none",
