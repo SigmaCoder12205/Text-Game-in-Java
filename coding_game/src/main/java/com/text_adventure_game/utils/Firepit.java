@@ -1,5 +1,6 @@
 package com.text_adventure_game.utils;
 
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.concurrent.Executors;
@@ -96,6 +97,15 @@ public class Firepit {
       System.exit(0); // Ends game on death
     }
     else{
+      ArrayList<Object> noteItems = new ArrayList<>();
+      Wood wood = null;
+      if(Inventory.checkInventoryWithValue(wood, "firepit")){
+        System.out.println("You've already found the note");
+      }
+      wood = new Wood(10, "firepit");
+      noteItems.add(wood);
+      Note note = new Note("Go look at the painting to find the key", noteItems);
+      Inventory.addItem(note);
       System.out.println("You find a note, check inventory to read it");
     }
   }

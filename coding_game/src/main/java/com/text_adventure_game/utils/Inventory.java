@@ -5,10 +5,22 @@ import java.util.ArrayList;
 public class Inventory {
   public static ArrayList<Object> items = new ArrayList<>();
 
-    public Inventory() {
-      items.add(new Wood(5));
-    }
-    public static boolean checkInventory(Object object){
+  public static boolean checkInventory(Object object){
       return items.contains(object);
+  }
+
+  public static boolean checkInventoryWithValue(Object object, Object value){
+    if(checkInventory(object)){
+      for(Object obj : items){
+        if(obj instanceof Wood wood && wood.foundfrom().equals(value)){
+          return true;
+        }
+      }
     }
+    return false;
+  }
+
+  public static void addItem(Object item){
+    items.add(item);
+  }
 }
