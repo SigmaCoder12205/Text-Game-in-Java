@@ -17,6 +17,7 @@ public class App{
   private static final Inventory inventory = new Inventory();
 
   public static void main( String[] args ) {
+    System.out.println("Inventory items: " + Inventory.items);
     mainMenu();
   }
   private static void handleChoicesWithCare(int choice){

@@ -40,6 +40,7 @@ public class Firepit {
     boolean menuOpen = true;
 
     while(menuOpen){
+      System.out.println("Inventory items: " + Inventory.items);
       System.out.println("You are looking at the firepit....");
       System.out.println("------------ Options -------------");
       System.out.println("1. Climb into the fire.");
@@ -79,7 +80,38 @@ public class Firepit {
           System.out.println("You don't have any Wood in your inventory");
         }
       }
-      default -> {}
+      case 3 -> putOutFire();
+      case 4 -> lightFire();
+      case 5 -> App.mainMenu();
+      default -> {System.out.println("Invaild choice try again"); sideMenu();}
+    }
+  }
+
+  private static void lightFire(){
+    if(isLighted){
+      System.out.println("Fire already lighted...");
+      }
+      else{
+      Optional<Wood> foundWood = Inventory.items.stream().filter(item -> item instanceof Wood).map(item -> (Wood) item).findFirst();
+      if(foundWood.isPresent()){
+        Wood wood = foundWood.get();
+        System.out.println("Using wood to light fire...");
+        Inventory.items.remove(wood);
+        isLighted = true;
+      }
+      else{
+        System.out.println("You don't have any wood in your inventory");
+      }
+    }
+  }
+
+  private static void putOutFire(){
+    if(isLighted){
+      isLighted = false;
+      System.out.println("Putting out the fire...");
+    }
+    else{
+      System.out.println("Fire is already out...");
     }
   }
 
@@ -94,7 +126,7 @@ public class Firepit {
     if(isLighted){
       System.out.println("The Fire is alight, and you die...");
       if (scheduledExecutorService != null) scheduledExecutorService.shutdown();
-      System.exit(0); // Ends game on death
+      System.exit(0);
     }
     else{
       ArrayList<Object> noteItems = new ArrayList<>();
@@ -106,6 +138,9 @@ public class Firepit {
       noteItems.add(wood);
       Note note = new Note("Go look at the painting to find the key", noteItems);
       Inventory.addItem(note);
+      for (Object item : noteItems){
+        Inventory.addItem(item);
+      }
       System.out.println("You find a note, check inventory to read it");
     }
   }
