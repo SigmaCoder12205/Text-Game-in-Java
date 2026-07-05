@@ -5,14 +5,13 @@ import java.util.Set;
 
 import com.text_adventure_game.utils.Firepit;
 import com.text_adventure_game.utils.Inventory;
-/*
-COme on and work on mainMenu boi
-*/
+import com.text_adventure_game.utils.Room;
 
 public class App{
   private static final Set<String> songs = new LinkedHashSet<>();
   private static final Scanner scanner = new Scanner(System.in);
   private static final Firepit  firepit = new Firepit();
+  private static final Room room = new Room();
   private static Thread musicThread;
   private static final Inventory inventory = new Inventory();
 
@@ -23,6 +22,7 @@ public class App{
   private static void handleChoicesWithCare(int choice){
     switch (choice) {
       case 1 -> firepit.look();
+      case 2 -> room.lookAround();
       case 4 -> System.exit(0);
       default -> {
           }
