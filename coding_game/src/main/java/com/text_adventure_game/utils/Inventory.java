@@ -20,6 +20,12 @@ public class Inventory {
     return false;
   }
 
+  public static void addMultiItems(ArrayList<Object> items){
+    for (Object item : items){
+      addItem(item);
+    }
+  }
+
   public static void addItem(Object item){
     items.add(item);
   }
