@@ -29,6 +29,10 @@ public class Firepit {
     }
   };
 
+  public static void increaseWoodStrength(int strength){
+    fireStrength.addAndGet(strength);
+  }
+
   public void look(){
     if(scheduledExecutorService == null || scheduledExecutorService.isShutdown()){
       scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();

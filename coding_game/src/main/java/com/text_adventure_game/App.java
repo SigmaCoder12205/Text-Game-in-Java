@@ -16,7 +16,6 @@ public class App{
   private static final Inventory inventory = new Inventory();
 
   public static void main( String[] args ) {
-    System.out.println("Inventory items: " + Inventory.items);
     mainMenu();
   }
   private static void handleChoicesWithCare(int choice){
@@ -31,6 +30,7 @@ public class App{
   public static void mainMenu(){
       try (scanner) {
           startMusic();
+          System.out.println("Inventory items: " + Inventory.items);
           System.out.println("------------ Main Menu  --------------");
           System.out.println("1. Inspect Firepit");
           System.out.println("2. Look around");
