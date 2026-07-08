@@ -7,7 +7,7 @@ import com.text_adventure_game.App;
 public class Room {
   private static final Scanner scanner = new Scanner(System.in);
 
-  public void lookAround(){
+  public void lookAround() throws InterruptedException{
     putItemsInChest();
     System.out.println("You look around and find a chest");
     System.out.println("\n1. Open chest");
@@ -31,7 +31,7 @@ public class Room {
     Chest chest = new Chest(itemsToAdd);
   }
 
-  private static void handleChoices(int choice){
+  private static void handleChoices(int choice) throws InterruptedException{
     switch (choice) {
       case 1 -> {
         System.out.println("You find a chest!");

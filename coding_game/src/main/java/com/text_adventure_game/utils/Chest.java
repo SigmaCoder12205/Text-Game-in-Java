@@ -12,7 +12,7 @@ public class Chest {
   Chest(ArrayList<Object> items){
     Chest.items = items;
   }
-  public static void look(){
+  public static void look() throws InterruptedException{
     System.out.println("The chest contains: ");
     if(items == null){
       System.out.println("Nothing...");
@@ -34,7 +34,7 @@ public class Chest {
   public void addItem(Object item){
     items.add(item);
   }
-  private static void handleChoice(int choice){
+  private static void handleChoice(int choice) throws InterruptedException{
     switch (choice) {
       case 1 -> {
         Inventory.addMultiItems(items);
@@ -49,9 +49,10 @@ public class Chest {
         switch (choice1) {
           case 1 -> {SecrectRoom.goIn();}
           case 2 -> {App.mainMenu();}
-          default -> {Firepit.increaseWoodStrength(20);}
+          default -> {System.out.println("Incorrect input"); App.mainMenu();}
         }
       }
+      case 3 -> {Firepit.increaseWoodStrength(20);}
       default -> {}
     }
   }

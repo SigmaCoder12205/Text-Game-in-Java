@@ -33,14 +33,14 @@ public class Firepit {
     fireStrength.addAndGet(strength);
   }
 
-  public void look(){
+  public void look() throws InterruptedException{
     if(scheduledExecutorService == null || scheduledExecutorService.isShutdown()){
       scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
       scheduledExecutorService.scheduleAtFixedRate(decreaseWood, 2, 2, TimeUnit.SECONDS);
     }
     sideMenu();
   }
-  private static void sideMenu(){
+  private static void sideMenu() throws InterruptedException{
     boolean menuOpen = true;
 
     while(menuOpen){
@@ -67,7 +67,7 @@ public class Firepit {
   }
 
 
-  private static void handleChoicesWithCare(int choice){
+  private static void handleChoicesWithCare(int choice) throws InterruptedException{
     switch (choice) {
       case 1 -> climbIntoFire();
       case 2 -> {
