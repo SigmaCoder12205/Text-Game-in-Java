@@ -48,7 +48,7 @@ public class App{
      }
 
      if(currentOS.contains("win")){
-        
+        System.out.println("WIndos");
      }
      else if (currentOS.contains("nux") || currentOS.contains("nix") || currentOS.contains("aix")){
         songs.add("/home/ddogflyer/coding/textGAme/coding_game/music/ABBA - Does Your Mother Know.wav");
