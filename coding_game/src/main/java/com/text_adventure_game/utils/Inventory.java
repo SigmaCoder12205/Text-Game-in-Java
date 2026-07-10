@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Inventory {
   public static ArrayList<Object> items = new ArrayList<>();
 
-  public static boolean checkInventory(Object object){
-      return items.contains(object);
+  public static boolean checkInventory(Class<?> type){
+      return items.stream().anyMatch(type::isInstance);
   }
 
-  public static boolean checkInventoryWithValue(Object object, Object value){
+  public static boolean checkInventoryWithValue(Class<?> object, Object value){
     if(checkInventory(object)){
       for(Object obj : items){
         if(obj instanceof Wood wood && wood.foundfrom().equals(value)){

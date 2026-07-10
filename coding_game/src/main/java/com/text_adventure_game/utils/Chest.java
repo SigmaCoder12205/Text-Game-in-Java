@@ -52,7 +52,7 @@ public class Chest {
           default -> {System.out.println("Incorrect input"); App.mainMenu();}
         }
       }
-      case 3 -> {Firepit.increaseWoodStrength(20);}
+      case 3 -> {Firepit.increaseWoodStrength(20); App.mainMenu();}
       default -> {}
     }
   }

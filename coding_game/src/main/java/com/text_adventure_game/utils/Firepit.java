@@ -30,7 +30,9 @@ public class Firepit {
   };
 
   public static void increaseWoodStrength(int strength){
+    System.out.println("Before Strength: " + fireStrength.get());
     fireStrength.addAndGet(strength);
+    System.out.println("New Strength:    " + fireStrength.get());
   }
 
   public void look() throws InterruptedException{
@@ -39,8 +41,7 @@ public class Firepit {
       scheduledExecutorService.scheduleAtFixedRate(decreaseWood, 2, 2, TimeUnit.SECONDS);
     }
     sideMenu();
-  }
-  private static void sideMenu() throws InterruptedException{
+  }  private static void sideMenu() throws InterruptedException{
     boolean menuOpen = true;
 
     while(menuOpen){
@@ -134,11 +135,10 @@ public class Firepit {
     }
     else{
       ArrayList<Object> noteItems = new ArrayList<>();
-      Wood wood = null;
-      if(Inventory.checkInventoryWithValue(wood, "firepit")){
+      if(Inventory.checkInventoryWithValue(Wood.class, "firepit")){
         System.out.println("You've already found the note");
       }
-      wood = new Wood(10, "firepit");
+      Wood wood = new Wood(10, "firepit");
       noteItems.add(wood);
       Note note = new Note("Go look at the painting to find the key", noteItems);
       Inventory.addItem(note);
