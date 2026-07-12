@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.text_adventure_game.utils.Firepit;
 import com.text_adventure_game.utils.Inventory;
+import com.text_adventure_game.utils.Painting;
 import com.text_adventure_game.utils.Room;
 
 public class App{
@@ -24,6 +25,7 @@ public class App{
       case 1 -> firepit.look();
       case 2 -> room.lookAround();
       case 4 -> System.exit(0);
+      case 3 -> Painting.look();
       default -> {
           }
     }
